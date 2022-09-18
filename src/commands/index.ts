@@ -1,11 +1,15 @@
 import { fetchXml } from 'iconfont-parser'
+import { getConfig } from '../libs/getConfig'
 import colors from 'colors'
-import { genComponents } from '../libs/genComponents';
+import { genComponents } from '../libs/genComponents'
 
-fetchXml('http://at.alicdn.com/t/font_1373348_ghk94ooopqr.js')
+const config = getConfig()
+
+fetchXml(config.symbol_url)
   .then((result) => {
-    genComponents(result)
+    genComponents(result, config)
   })
   .catch((e) => {
     console.error(colors.red(e))
+    process.exit(1)
   })

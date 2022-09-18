@@ -19,7 +19,6 @@ export const genComponents = (data: XmlData, config: Config) => {
   mkdirp.sync(saveDir)
   glob.sync(path.join(saveDir, '*')).forEach((file) => fs.unlinkSync(file))
 
-
   data.svg.symbol.forEach((item) => {
     const iconId = item.$.id
 
@@ -44,10 +43,11 @@ export const genComponents = (data: XmlData, config: Config) => {
     path.join(saveDir, fileName + '.scss'),
     getTemplate('index.scss')
   )
-  let tsxFile = getTemplate('index.txs')
+  let tsxFile = getTemplate('index.tsx')
 
   tsxFile = replaceSVGTemplate(tsxFile, svgTemplates)
-
+  
+  fs.writeFileSync(path.join(saveDir, fileName + '.tsx'), tsxFile)
   console.log(
     `\n${colors.green('√')} All icons have been putted into dir: ${colors.green(
       config.save_dir
