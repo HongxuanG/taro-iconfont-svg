@@ -3,7 +3,7 @@ export const replaceSize = (content: string, size: number) => {
 };
 
 export const replaceNames = (content: string, names: string[]) => {
-  return content.replace(/#names#/g, names.join(' | '));
+  return content.replace(/#names#/g, names.join(`' | '`));
 };
 
 export const replaceHexToRgb = (hex) => {

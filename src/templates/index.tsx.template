@@ -1,6 +1,6 @@
 import React, { useState, useEffect, FC } from "react";
 import { Block, View } from "@tarojs/components";
-import styles from "./#styleName#.scss";
+import "./#styleName#.scss";
 import Taro from "@tarojs/taro";
 import classnames from "classnames";
 
@@ -24,12 +24,14 @@ function hex2rgb(hex) {
   return "rgb(" + rgb.join(",") + ")";
 }
 
+export type IconNames = '#names#';
+
 type PropsType = {
-  name: string;
-  size: number;
-  color: string;
-  customStyle: React.CSSProperties;
-  customClassName: string;
+  name: IconNames;
+  size?: number;
+  color?: string;
+  customStyle?: React.CSSProperties;
+  customClassName?: string;
 };
 
 const IconFont:FC<PropsType> = ({
@@ -77,16 +79,12 @@ const IconFont:FC<PropsType> = ({
               "rgb(91,139,212)"}' /%3E%3C/svg%3E${quot}); width: ${svgSize}px; height: ${svgSize}px;`,
             ...customStyle
           }}
-          className={classnames(styles.icon, customClassName)}
+          className={classnames(icon, customClassName)}
         />
       )} */}
       #svgTemplate#
     </Block>
   )
-}
-
-IconFont.defaultProps = {
-  size: 36,
 }
 
 export default IconFont

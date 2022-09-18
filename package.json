@@ -23,7 +23,7 @@
   },
   "name": "taro-iconfont-svg",
   "description": "通过 background:url(data:svg+xml....) 的形式 在小程序上把svg显示出来",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "index.js",
   "bin": {
     "iconfont-init": "./commands/createJson.js",

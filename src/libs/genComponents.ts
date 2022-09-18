@@ -5,7 +5,7 @@ import { Config } from './getConfig'
 import path, { basename } from 'path'
 import fs from 'fs'
 import { getTemplate } from './getTemplate'
-import { replaceStyleName, replaceSVGTemplate } from './replace'
+import { replaceNames, replaceStyleName, replaceSVGTemplate } from './replace'
 import mkdirp from 'mkdirp'
 import glob from 'glob'
 
@@ -31,7 +31,7 @@ export const genComponents = (data: XmlData, config: Config) => {
           hexToRgb: true,
         }
       )}#$#{quot});` +
-        ' width: #$#{svgSize}px; height: #$#{svgSize}px; #que#, ...customStyle}} className={classnames(styles.icon,    customClassName)} />) }\n'
+        ' width: #$#{svgSize}px; height: #$#{svgSize}px; #que#, ...customStyle}} className={classnames("icon", customClassName)} />) }\n'
     )
 
     console.log(
@@ -44,6 +44,8 @@ export const genComponents = (data: XmlData, config: Config) => {
     getTemplate('index.scss')
   )
   let tsxFile = getTemplate('index.tsx')
+
+  tsxFile = replaceNames(tsxFile, names)
 
   tsxFile = replaceSVGTemplate(tsxFile, svgTemplates)
 
