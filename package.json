@@ -1,9 +1,20 @@
 {
   "dependencies": {
+    "colors": "^1.4.0",
+    "fs-extra": "^10.1.0",
+    "glob": "^8.0.3",
+    "iconfont-parser": "^1.0.0",
+    "minimist": "^1.2.6",
+    "mkdirp": "^1.0.4",
     "ts-node": "^10.9.1"
   },
   "devDependencies": {
+    "@types/fs-extra": "^9.0.13",
+    "@types/glob": "^8.0.0",
+    "@types/minimist": "^1.2.2",
+    "@types/mkdirp": "^1.0.2",
     "@types/node": "^18.7.18",
+    "tslib": "^2.4.0",
     "typescript": "^4.8.3"
   },
   "name": "taro-iconfont-svg",
