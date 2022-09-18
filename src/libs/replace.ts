@@ -34,5 +34,19 @@ export const replaceIsRpx = (content: string, useRpx: boolean) => {
 };
 
 export const replaceSVGTemplate = (content: string, svgTemplate:string[]) => {
-  return content.replace(/#svgTemplate#/, svgTemplate.join(''))
+  let context = content.replace(/#svgTemplate#/, svgTemplate.join(''))
+  context = replaceQue(context)
+  context = replaceDollarSign(context)
+  return context
+}
+
+export const replaceQue = (content: string) => {
+  return content.replace(/#que#/g, '`')
+}
+export const replaceDollarSign = (content: string) => {
+  return content.replace(/#\$#/g, '$')
+}
+
+export const replaceStyleName = (content: string, styleFileName:string) => {
+  return content.replace(/#styleName#/g, styleFileName)
 }

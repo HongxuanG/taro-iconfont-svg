@@ -10,7 +10,7 @@ export const generateCase = (
   }
 ) => {
   // viewbox 允许指定一个给定的一组图形伸展以适应特定的容器元素
-  let template = `<svg viewBox='${data.$.viewBox}' xmlns='http://www.w3.org/2000/svg' width='{{svgSize}}px' height='{{svgSize}}px'>`
+  let template = `<svg viewBox='${data.$.viewBox}' xmlns='http://www.w3.org/2000/svg' width='#$#{svgSize}px' height='#$#{svgSize}px'>`
 
   for (const domName of Object.keys(data)) {
     if (domName === '$') {
@@ -73,7 +73,7 @@ const addAttribute = (
           keyword = 'color'
           color = sub.$[attributeName]
         }
-        template += ` ${attributeName}='{{(isStr ? ${keyword} : ${keyword}[${counter.colorIndex}]) || '${color}'}}'`
+        template += ` ${attributeName}='#$#{(isStr ? ${keyword} : ${keyword}[${counter.colorIndex}]) || '${color}'}'`
         counter.colorIndex += 1
       } else {
         template += ` ${attributeName}='${sub.$[attributeName]}'`

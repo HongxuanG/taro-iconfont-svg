@@ -5,7 +5,7 @@ import { Config } from './getConfig'
 import path, { basename } from 'path'
 import fs from 'fs'
 import { getTemplate } from './getTemplate'
-import { replaceSVGTemplate } from './replace'
+import { replaceStyleName, replaceSVGTemplate } from './replace'
 import mkdirp from 'mkdirp'
 import glob from 'glob'
 
@@ -24,14 +24,14 @@ export const genComponents = (data: XmlData, config: Config) => {
 
     names.push(iconId)
     svgTemplates.push(
-      `{/* ${iconId} */}
-      { name === '${iconId}' && (<View style="background-image: url({{quot}}data:image/svg+xml, ${generateCase(
+      `{/* ${iconId} */}\n
+      { name === '${iconId}' && (<View style={{backgroundImage: #que#url(#$#{quot}data:image/svg+xml, ${generateCase(
         item,
         {
           hexToRgb: true,
         }
-      )}{{quot}});` +
-        ' width: {{svgSize}}px; height: {{svgSize}}px; " class="icon" />) }'
+      )}#$#{quot});` +
+        ' width: #$#{svgSize}px; height: #$#{svgSize}px; #que#, ...customStyle}} className={classnames(styles.icon,    customClassName)} />) }\n'
     )
 
     console.log(
@@ -46,6 +46,8 @@ export const genComponents = (data: XmlData, config: Config) => {
   let tsxFile = getTemplate('index.tsx')
 
   tsxFile = replaceSVGTemplate(tsxFile, svgTemplates)
+
+  tsxFile = replaceStyleName(tsxFile, fileName)
   
   fs.writeFileSync(path.join(saveDir, fileName + '.tsx'), tsxFile)
   console.log(
