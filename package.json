@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "ts-node": "^10.9.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18.7.18",
+    "typescript": "^4.8.3"
+  },
+  "name": "taro-iconfont-svg",
+  "description": "通过 background:url(data:svg+xml....) 的形式 在小程序上把svg显示出来",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.comHongxuanGtaro-iconfont-svg.git"
+  },
+  "keywords": [
+    "taro",
+    "iconfont"
+  ],
+  "author": "ghx",
+  "license": "MIT"
+}

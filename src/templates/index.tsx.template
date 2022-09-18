@@ -1,0 +1,62 @@
+import { useState, useEffect } from 'react'
+import { Block } from '@tarojs/components'
+import './index.scss'
+
+const initSvgSize = (36 / 750) * wx.getSystemInfoSync().windowWidth
+const quot = '"'
+
+function hex2rgb(hex) {
+  var rgb = []
+
+  hex = hex.substr(1)
+
+  if (hex.length === 3) {
+    hex = hex.replace(/(.)/g, '$1$1')
+  }
+
+  hex.replace(/../g, function (color) {
+    rgb.push(parseInt(color, 0x10))
+    return color
+  })
+
+  return 'rgb(' + rgb.join(',') + ')'
+}
+
+const IconFont = ({ name, size = 36, color = '#000', style }) => {
+  const [colors, setColors] = useState('')
+  const [isStr, setIsStr] = useState(true)
+  const [svgSize, setSvgSize] = useState(initSvgSize)
+
+  useEffect(() => {
+    setIsStr(typeof color === 'string')
+    if (typeof color === 'string') {
+      setColors(color.indexOf('#') === 0 ? hex2rgb(color) : color)
+    } else {
+      setColors(
+        color.map(function (item) {
+          return item.indexOf('#') === 0 ? hex2rgb(item) : item
+        })
+      )
+    }
+    return () => {}
+  }, [color])
+
+  useEffect(() => {
+    setSvgSize((size / 750) * wx.getSystemInfoSync().windowWidth)
+  }, [size])
+
+  // 也可以使用 if (name === 'xxx') { return <view> } 来渲染，但是测试发现在ios下会有问题，报错 Maximum call stack啥的。下面这个写法没问题
+  return (
+    <Block>
+      {/* {name === 'starempty' && (<view style={`background-image: url(${quot}data:image/svg+xml, %3Csvg viewBox='0 0 1025 1024' xmlns='http://www.w3.org/2000/svg' width='${svgSize}px' height='${svgSize}px'%3E%3Cpath d='M1024 397.056l-353.792-51.424-158.208-320.576-158.208 320.576-353.792 51.424 256 249.536-60.448 352.352 316.448-166.368 316.448 166.368-60.448-352.352 256-249.536zM512 753.504l-223.456 117.472 42.688-248.832-180.8-176.224 249.856-36.288 111.744-226.4 111.744 226.4 249.824 36.288-180.8 176.224 42.688 248.832-223.456-117.472z' fill='${(isStr ? colors : colors[0]) || 'rgb(51,51,51)'}' /%3E%3C/svg%3E${quot}); width: ${svgSize}px; height: ${svgSize}px; `} className='icon' />)}
+      {name === 'starfull' && (<view style={`background-image: url(${quot}data:image/svg+xml, %3Csvg viewBox='0 0 1025 1024' xmlns='http://www.w3.org/2000/svg' width='${svgSize}px' height='${svgSize}px'%3E%3Cpath d='M1024 397.056l-353.792-51.424-158.208-320.576-158.208 320.576-353.792 51.424 256 249.536-60.448 352.352 316.448-166.368 316.448 166.368-60.448-352.352 256-249.536z' fill='${(isStr ? colors : colors[0]) || 'rgb(51,51,51)'}' /%3E%3C/svg%3E${quot}); width: ${svgSize}px; height: ${svgSize}px; `} className='icon' />)} */}
+      #svgTemplate#
+    </Block>
+  )
+}
+
+IconFont.defaultProps = {
+  size: 36,
+}
+
+export default IconFont
