@@ -73,7 +73,7 @@ const addAttribute = (
           keyword = 'color'
           color = sub.$[attributeName]
         }
-        template += ` ${attributeName}='#$#{(isStr ? ${keyword} : ${keyword}[${counter.colorIndex}]) || '${color}'}'`
+        template += ` ${attributeName}='#$#{(isStr ? ${keyword} : ${keyword}?.[${counter.colorIndex}]) || '${color}'}'`
         counter.colorIndex += 1
       } else {
         template += ` ${attributeName}='${sub.$[attributeName]}'`

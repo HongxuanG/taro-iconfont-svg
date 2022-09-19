@@ -29,7 +29,7 @@ export type IconNames = '#names#';
 type PropsType = {
   name: IconNames;
   size?: number;
-  color?: string;
+  color?: string | string[];
   customStyle?: React.CSSProperties;
   customClassName?: string;
 };
@@ -41,7 +41,7 @@ const IconFont:FC<PropsType> = ({
   customStyle = {},
   customClassName = ""
 }) => {
-  const [colors, setColors] = useState('')
+  const [colors, setColors] = useState<PropsType['color']>()
   const [isStr, setIsStr] = useState(true)
   const [svgSize, setSvgSize] = useState(initSvgSize)
 
@@ -51,7 +51,7 @@ const IconFont:FC<PropsType> = ({
       setColors(color.indexOf('#') === 0 ? hex2rgb(color) : color)
     } else {
       setColors(
-        color.map(function (item) {
+        color?.map(function (item) {
           return item.indexOf('#') === 0 ? hex2rgb(item) : item
         })
       )
