@@ -37,7 +37,7 @@ type PropsType = {
 const IconFont:FC<PropsType> = ({
   name,
   size = #size#,
-  color = "#000",
+  color,
   customStyle = {},
   customClassName = ""
 }) => {
