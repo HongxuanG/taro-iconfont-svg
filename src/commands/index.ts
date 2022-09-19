@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { fetchXml } from 'iconfont-parser'
 import { getConfig } from '../libs/getConfig'
 import colors from 'colors'
