@@ -7,8 +7,6 @@ import colors from "colors";
 export interface Config {
   symbol_url: string;
   save_dir: string;
-  use_typescript: boolean;
-  platforms: string[];
   use_rpx: boolean;
   design_width: string | number;
   trim_icon_prefix: string;

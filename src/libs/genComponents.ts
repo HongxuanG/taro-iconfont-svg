@@ -5,7 +5,7 @@ import { Config } from './getConfig'
 import path, { basename } from 'path'
 import fs from 'fs'
 import { getTemplate } from './getTemplate'
-import { replaceNames, replaceStyleName, replaceSVGTemplate } from './replace'
+import { replaceNames, replaceSize, replaceStyleName, replaceSVGTemplate } from './replace'
 import mkdirp from 'mkdirp'
 import glob from 'glob'
 
@@ -44,6 +44,8 @@ export const genComponents = (data: XmlData, config: Config) => {
     getTemplate('index.scss')
   )
   let tsxFile = getTemplate('index.tsx')
+
+  tsxFile = replaceSize(tsxFile, config.default_icon_size)
 
   tsxFile = replaceNames(tsxFile, names)
 

@@ -3,6 +3,6 @@
   "save_dir": "./src/components/iconfont",
   "use_typescript": false,
   "use_rpx": true,
-  "default_icon_size": 18,
+  "default_icon_size": 36,
   "design_width":  750
 }
