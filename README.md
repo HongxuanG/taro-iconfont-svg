@@ -9,6 +9,10 @@
 
 # Usage
 
+## npm 安装
+
+npm install taro-iconfont-svg -D
+
 执行 npx iconfont-init 初始化配置
 
 此时项目根目录会生成一个`iconfont.json`的文件，内容如下：
