@@ -11,7 +11,14 @@
 
 ## npm 安装
 
-> pnpm install taro-iconfont-svg -D
+```bash
+npm install taro-iconfont-svg -D
+```
+
+### 也可以使用 pnpm 安装
+```bash
+pnpm install taro-iconfont-svg -D
+```
 
 执行 npx iconfont-init 初始化配置
 
