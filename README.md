@@ -15,13 +15,14 @@
 npm install taro-iconfont-svg -D
 ```
 
-### 也可以使用 pnpm 安装
+## 也可以使用 pnpm 安装
 ```bash
 pnpm install taro-iconfont-svg -D
 ```
-
+## 初始化
+```bash
 执行 npx iconfont-init 初始化配置
-
+```
 此时项目根目录会生成一个`iconfont.json`的文件，内容如下：
 ```json
 {
@@ -57,7 +58,8 @@ pnpm install taro-iconfont-svg -D
 
 ### default_icon_size
 我们将为每个生成的图标组件加入默认的字体大小，当然，你也可以通过传入props的方式改变这个size值。
-
+## 生成自定义组件
+```bash
 执行 npx iconfont-taro 生成自定义组件iconfont
-
+```
 在项目中引入文件
