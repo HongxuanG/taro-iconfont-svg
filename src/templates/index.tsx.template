@@ -4,7 +4,7 @@ import "./#styleName#.scss";
 import Taro from "@tarojs/taro";
 import classnames from "classnames";
 
-const initSvgSize = (36 / 750) * Taro.getSystemInfoSync().windowWidth
+const SystemWidth = Taro.getSystemInfoSync().windowWidth
 const quot = '"'
 
 function hex2rgb(hex) {
@@ -43,7 +43,7 @@ const IconFont:FC<PropsType> = ({
 }) => {
   const [colors, setColors] = useState<PropsType['color']>()
   const [isStr, setIsStr] = useState(true)
-  const [svgSize, setSvgSize] = useState(initSvgSize)
+  const [svgSize, setSvgSize] = useState(() => (size / 750) * SystemWidth)
 
   useEffect(() => {
     setIsStr(typeof color === 'string')
@@ -60,7 +60,7 @@ const IconFont:FC<PropsType> = ({
   }, [color])
 
   useEffect(() => {
-    setSvgSize((size / 750) * Taro.getSystemInfoSync().windowWidth)
+    setSvgSize((size / 750) * SystemWidth)
   }, [size])
 
   // 也可以使用 if (name === 'xxx') { return <view> } 来渲染，但是测试发现在ios下会有问题，报错 Maximum call stack啥的。下面这个写法没问题
