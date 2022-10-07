@@ -62,4 +62,4 @@ pnpm install taro-iconfont-svg -D
 ```bash
 执行 npx iconfont-taro 生成自定义组件iconfont
 ```
-在项目中引入文件
+在项目中引入文件即可
