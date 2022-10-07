@@ -1,52 +1,51 @@
 export const replaceSize = (content: string, size: number) => {
-  return content.replace(/#size#/g, String(size));
-};
+  return content.replace(/#size#/g, String(size))
+}
 
 export const replaceNames = (content: string, names: string[]) => {
-  return content.replace(/#names#/g, names.join(`' | '`));
-};
+  return content.replace(/#names#/g, names.join('\' | \''))
+}
 
 export const replaceHexToRgb = (hex) => {
-  const rgb: number[] = [];
+  const rgb: number[] = []
 
-  //去除前缀 # 号
-  hex = hex.substr(1);
+  // 去除前缀 # 号
+  hex = hex.substr(1)
 
   if (hex.length === 3) {
     // 处理 '#abc' 成 '#aabbcc'
-    hex = hex.replace(/(.)/g, '$1$1');
+    hex = hex.replace(/(.)/g, '$1$1')
   }
 
   hex.replace(/../g, (color: string) => {
     // 按16进制将字符串转换为数字
-    rgb.push(parseInt(color, 0x10));
+    rgb.push(parseInt(color, 0x10))
 
-    return color;
-  });
+    return color
+  })
 
-  return 'rgb(' + rgb.join(',') + ')';
-};
+  return `rgb(${rgb.join(',')})`
+}
 
 export const replaceIsRpx = (content: string, useRpx: boolean) => {
   return content
     .replace(/#rpx-1:(.+?):#/g, useRpx ? '$1' : '')
-    .replace(/#rpx-0:(.+?):#/g, useRpx ? '' : '$1');
-};
+    .replace(/#rpx-0:(.+?):#/g, useRpx ? '' : '$1')
+}
+export const replaceQue = (content: string) => {
+  return content.replace(/#que#/g, '`')
+}
 
-export const replaceSVGTemplate = (content: string, svgTemplate:string[]) => {
+export const replaceDollarSign = (content: string) => {
+  return content.replace(/#\$#/g, '$')
+}
+export const replaceSVGTemplate = (content: string, svgTemplate: string[]) => {
   let context = content.replace(/#svgTemplate#/, svgTemplate.join(''))
   context = replaceQue(context)
   context = replaceDollarSign(context)
   return context
 }
 
-export const replaceQue = (content: string) => {
-  return content.replace(/#que#/g, '`')
-}
-export const replaceDollarSign = (content: string) => {
-  return content.replace(/#\$#/g, '$')
-}
-
-export const replaceStyleName = (content: string, styleFileName:string) => {
+export const replaceStyleName = (content: string, styleFileName: string) => {
   return content.replace(/#styleName#/g, styleFileName)
 }

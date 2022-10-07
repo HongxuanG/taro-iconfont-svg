@@ -1,4 +1,30 @@
 {
+  "name": "taro-iconfont-svg",
+  "version": "1.0.10",
+  "description": "通过 background:url(data:svg+xml....) 的形式 在小程序上把 SVG 字体图标显示出来",
+  "keywords": [
+    "taro",
+    "iconfont",
+    "svg"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HongxuanG/taro-iconfont-svg.git"
+  },
+  "author": "ghx",
+  "main": "index.js",
+  "bin": {
+    "iconfont-init": "./commands/createJson.js",
+    "iconfont-taro": "./commands/index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "bash ./build.sh",
+    "lint": "eslint . --fix",
+    "iconfont-init": "npx ts-node src/commands/createJson.ts",
+    "iconfont-taro": "npx ts-node src/commands/index.ts"
+  },
   "dependencies": {
     "@tarojs/taro": "^3.5.5",
     "classnames": "^2.3.2",
@@ -11,39 +37,17 @@
     "ts-node": "^10.9.1"
   },
   "devDependencies": {
+    "@aaronghx/eslint-config": "^0.1.4",
     "@tarojs/components": "^3.5.5",
     "@types/fs-extra": "^9.0.13",
     "@types/glob": "^8.0.0",
     "@types/minimist": "^1.2.2",
     "@types/mkdirp": "^1.0.2",
     "@types/node": "^18.7.18",
+    "eslint": "^8.24.0",
     "react": "^18.2.0",
     "tslib": "^2.4.0",
     "typescript": "^4.8.3"
   },
-  "name": "taro-iconfont-svg",
-  "description": "通过 background:url(data:svg+xml....) 的形式 在小程序上把 SVG 字体图标显示出来",
-  "version": "1.0.9",
-  "main": "index.js",
-  "bin": {
-    "iconfont-init": "./commands/createJson.js",
-    "iconfont-taro": "./commands/index.js"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "bash ./build.sh",
-    "iconfont-init": "npx ts-node src/commands/createJson.ts",
-    "iconfont-taro": "npx ts-node src/commands/index.ts"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git@github.comHongxuanGtaro-iconfont-svg.git"
-  },
-  "keywords": [
-    "taro",
-    "iconfont",
-    "svg"
-  ],
-  "author": "ghx",
-  "license": "MIT"
+  "homepage": "https://github.com/HongxuanG/taro-iconfont-svg"
 }

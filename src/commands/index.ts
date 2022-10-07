@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
 import { fetchXml } from 'iconfont-parser'
-import { getConfig } from '../libs/getConfig'
 import colors from 'colors'
+import { getConfig } from '../libs/getConfig'
 import { genComponents } from '../libs/genComponents'
 
 const config = getConfig()
