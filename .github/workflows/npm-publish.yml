@@ -12,14 +12,13 @@ jobs:
   publish-npm:
     runs-on: windows-latest
     steps:
-      - name: Use Node.js
+      - name: Build
         uses: actions/setup-node@v3
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
-
-      - name: Build
-        run: ../build.sh
+        run: npm install
+        run: ./build.sh
 
       - name: Publish to NPM
         run: npm publish ../build/ --access=public
