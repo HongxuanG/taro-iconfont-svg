@@ -20,9 +20,10 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - run: npm install
       - run: npm run build
-      - name: npm login
-        run: npm login --scope=@aaronghx
+      
       - name: Publish to NPM
-        run: npm publish ./build/ --access=public
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          package: ./build/package.json
+          access: public
