@@ -1,5 +1,4 @@
-set -e
-
+echo "Build start"
 rm -rf ./build
 rm -rf ./src/iconfont
 
