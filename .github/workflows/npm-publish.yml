@@ -22,6 +22,6 @@ jobs:
       - run: ./build.sh
 
       - name: Publish to NPM
-        run: npm publish ../build/ --access=public
+        run: npm publish ./build/ --access=public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
