@@ -20,7 +20,11 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - run: npm install
       - run: npm run build
-
+      - name: npm login
+        run: npm login
+        with: 
+          usename: ${{secrets.NPM_USENAME}}
+          password: ${{secrets.NPM_PASSWORD}}
       - name: Publish to NPM
         run: npm publish ./build/ --access=public
         env:
