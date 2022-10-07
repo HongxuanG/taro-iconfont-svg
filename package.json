@@ -31,6 +31,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "./build.sh",
     "iconfont-init": "npx ts-node src/commands/createJson.ts",
     "iconfont-taro": "npx ts-node src/commands/index.ts"
   },

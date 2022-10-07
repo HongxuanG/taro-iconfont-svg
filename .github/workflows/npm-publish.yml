@@ -19,7 +19,7 @@ jobs:
           node-version: 16
           registry-url: https://registry.npmjs.org/
       - run: npm install
-      - run: ./build.sh
+      - run: npm run build
 
       - name: Publish to NPM
         run: npm publish ./build/ --access=public
