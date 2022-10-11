@@ -6,7 +6,7 @@ name: taro-iconfont-svg
 on:
   push:
     branches: 
-    - main
+    - release
 
 jobs:
   publish-npm:
