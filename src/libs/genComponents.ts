@@ -26,12 +26,12 @@ export const genComponents = (data: XmlData, config: Config) => {
     svgTemplates.push(
       `{/* ${iconId} */}\n
       { name === '${iconId}' && (<View style={{backgroundImage: #que#url(#$#{quot}data:image/svg+xml, ${generateCase(
-  item,
-  {
-    hexToRgb: true,
-  },
-)}#$#{quot});`
-        + ' width: #$#{svgSize}px; height: #$#{svgSize}px; #que#, ...customStyle}} className={classnames("icon", customClassName)} />) }\n',
+        item,
+        {
+          hexToRgb: true,
+        }
+      )}#$#{quot})#que#,` +
+        ' width: #que##$#{svgSize}px#que#, height: #que##$#{svgSize}px#que#, ...customStyle}} className={classnames("icon", customClassName)} />) }\n'
     )
 
     console.log(

@@ -1,6 +1,6 @@
 echo "Build start"
 rm -rf ./build
-rm -rf ./src/iconfont
+rm -rf ./src/components/iconfont
 
 ./node_modules/.bin/tsc
 
