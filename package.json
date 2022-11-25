@@ -19,36 +19,38 @@
     "iconfont-taro": "./commands/index.js"
   },
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "build": "bash ./build.sh",
-    "lint": "eslint . --fix",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "release": "bumpp package.json --commit --push --tag",
     "iconfont-init": "npx ts-node src/commands/createJson.ts",
     "iconfont-taro": "npx ts-node src/commands/index.ts"
   },
   "dependencies": {
-    "@tarojs/taro": "^3.5.5",
+    "@tarojs/taro": "^3.5.7",
     "classnames": "^2.3.2",
     "colors": "^1.4.0",
     "fs-extra": "^10.1.0",
     "glob": "^8.0.3",
     "iconfont-parser": "^1.0.0",
-    "minimist": "^1.2.6",
+    "minimist": "^1.2.7",
     "mkdirp": "^1.0.4",
     "ts-node": "^10.9.1"
   },
   "devDependencies": {
-    "@aaronghx/eslint-config": "^0.1.4",
-    "@tarojs/components": "^3.5.5",
+    "@aaronghx/eslint-config-ts": "^0.1.6",
+    "@tarojs/components": "^3.5.7",
     "@types/fs-extra": "^9.0.13",
     "@types/glob": "^8.0.0",
     "@types/minimist": "^1.2.2",
     "@types/mkdirp": "^1.0.2",
-    "@types/node": "^18.7.18",
+    "@types/node": "^18.11.9",
     "bumpp": "^8.2.1",
-    "eslint": "^8.24.0",
+    "eslint": "^8.28.0",
     "react": "^18.2.0",
-    "tslib": "^2.4.0",
-    "typescript": "^4.8.3"
+    "tslib": "^2.4.1",
+    "typescript": "^4.9.3"
   },
   "homepage": "https://github.com/HongxuanG/taro-iconfont-svg"
 }
