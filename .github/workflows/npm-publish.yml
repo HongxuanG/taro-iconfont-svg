@@ -20,8 +20,8 @@ jobs:
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
-      - run: pnpm install
-      - run: pnpm run build
+      - run: npm install
+      - run: npm run build
       
       - name: Publish to NPM
         id: publish

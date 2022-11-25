@@ -19,7 +19,6 @@
     "iconfont-taro": "./commands/index.js"
   },
   "scripts": {
-    "preinstall": "npx only-allow pnpm",
     "build": "bash ./build.sh",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
