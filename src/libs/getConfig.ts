@@ -36,7 +36,7 @@ export const getConfig = (argv?: string[]) => {
     )
     process.exit(1)
   }
-  
+
   const config = require(targetFile) as Config
   console.log('config==>', config)
 
