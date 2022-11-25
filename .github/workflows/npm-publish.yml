@@ -5,8 +5,10 @@ name: taro-iconfont-svg
 
 on:
   push:
+    tags:
+      - 'v*'
     branches: 
-    - main
+      - main
 
 jobs:
   publish-npm:
@@ -18,8 +20,8 @@ jobs:
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
-      - run: npm install
-      - run: npm run build
+      - run: pnpm install
+      - run: pnpm run build
       
       - name: Publish to NPM
         id: publish
