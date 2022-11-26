@@ -9,7 +9,7 @@ const SystemWidth = Taro.getSystemInfoSync().windowWidth
 const quot = '"'
 
 function hex2rgb(hex) {
-  const rgb = []
+  const rgb: number[] = []
 
   hex = hex.substr(1)
 
