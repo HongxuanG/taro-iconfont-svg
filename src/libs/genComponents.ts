@@ -8,18 +8,29 @@ import { generateCase } from './utils'
 import type { Config } from './getConfig'
 import { getTemplate } from './getTemplate'
 import { replaceNames, replaceSVGTemplate, replaceSize, replaceStyleName } from './replace'
-
-export const genComponents = (data: XmlData, config: Config) => {
-  console.log(data)
+import { genLocalSvg2Symbols } from './genLocalSvg2icon'
+// 生成 taro-iconfont 组件
+export const genComponents = async(data: XmlData, config: Config) => {
+  let extendSymbols: XmlData['svg']['symbol'] = []
+  if (config.parse_local_svg) {
+    if (config.local_svg_dir) {
+      extendSymbols = await genLocalSvg2Symbols(config.local_svg_dir)
+    }
+    else {
+      console.log(
+        `\n${colors.yellow('warn')} "parse_local_svg" Has been set but failed to read into the "local_svg_dir" folder\n`)
+    }
+  }
   const svgTemplates: string[] = []
   const names: string[] = []
   const saveDir = path.resolve(config.save_dir)
+  console.log('saveDir', saveDir)
   const fileName = basename(config.save_dir) || 'index'
 
   mkdirp.sync(saveDir)
   glob.sync(path.join(saveDir, '*')).forEach(file => fs.unlinkSync(file))
-
-  data.svg.symbol.forEach((item) => {
+  const symbol = [...data.svg.symbol, ...extendSymbols]
+  symbol.forEach((item) => {
     const iconId = item.$.id
 
     names.push(iconId)
@@ -38,7 +49,6 @@ export const genComponents = (data: XmlData, config: Config) => {
       `${colors.green('√')} Generated icon "${colors.yellow(iconId)}"`,
     )
   })
-  console.log('svgTemplates==>', svgTemplates)
   fs.writeFileSync(
     path.join(saveDir, `${fileName}.scss`),
     getTemplate('index.scss'),

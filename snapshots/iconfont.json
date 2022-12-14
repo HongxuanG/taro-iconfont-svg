@@ -1,5 +1,7 @@
 {
   "symbol_url": "http://at.alicdn.com/t/font_1373348_ghk94ooopqr.js",
+  "parse_local_svg": true,
+  "local_svg_dir": "./snapshots/assert",
   "save_dir": "./src/components/iconfont",
   "use_typescript": false,
   "use_rpx": true,

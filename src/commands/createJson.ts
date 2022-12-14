@@ -5,7 +5,7 @@ import fs from 'fs'
 import fse from 'fs-extra'
 import colors from 'colors'
 import minimist from 'minimist'
-
+// 获取命令 参数
 const args = minimist<{ output: string }>(process.argv.slice(2))
 
 let outputPath = 'iconfont.json'

@@ -1,5 +1,7 @@
 {
   "symbol_url": "请参考README.md，复制 http://iconfont.cn 官网提供的JS链接",
+  "parse_local_svg": false,
+  "local_svg_dir": "./src/assert/svg",
   "save_dir": "./src/components/iconfont",
   "use_typescript": false,
   "use_rpx": true,

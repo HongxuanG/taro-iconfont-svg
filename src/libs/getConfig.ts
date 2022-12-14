@@ -6,6 +6,8 @@ import defaultConfig from './iconfont.json'
 
 export interface Config {
   symbol_url: string
+  parse_local_svg: boolean // 是否读取本地 svg 文件，再iconfont组件中追加svg
+  local_svg_dir: string // 本地 svg 文件存放路径
   save_dir: string
   use_rpx: boolean
   design_width: string | number
@@ -38,7 +40,6 @@ export const getConfig = (argv?: string[]) => {
   }
 
   const config = require(targetFile) as Config
-  console.log('config==>', config)
 
   if (!config.symbol_url || !/^(https?:)?\/\//.test(config.symbol_url)) {
     console.warn(colors.red('You are required to provide symbol_url'))
