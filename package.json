@@ -1,6 +1,6 @@
 {
   "name": "taro-iconfont-svg",
-  "version": "1.0.19",
+  "version": "1.1.0",
   "description": "通过 background:url(data:svg+xml....) 的形式 在小程序上把 SVG 字体图标显示出来",
   "keywords": [
     "taro",
