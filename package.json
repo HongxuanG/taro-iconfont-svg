@@ -23,7 +23,6 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "release": "bumpp package.json --commit --push --tag",
-    "svg2iconfont": "npx ts-node ./src/libs/genLocalSvg2icon.ts",
     "iconfont-init": "npx ts-node src/commands/createJson.ts --config ./snapshots/iconfont.json",
     "iconfont-taro": "npx ts-node src/commands/index.ts --config ./snapshots/iconfont.json"
   },

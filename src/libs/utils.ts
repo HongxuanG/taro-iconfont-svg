@@ -29,7 +29,8 @@ const addAttribute = (
           if (attributeValue.includes('url(#')) {
             // # 一定要转成 %23
             template += ` ${attributeName}='${encodeURIComponent(attributeValue)}'`
-          }else{
+          }
+          else {
             template += ` ${attributeName}='${attributeValue}'`
           }
           continue
