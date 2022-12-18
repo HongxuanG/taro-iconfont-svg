@@ -1,4 +1,5 @@
 import type { XmlData } from 'iconfont-parser'
+import colors from 'colors'
 import { replaceHexToRgb } from './replace'
 
 const ATTRIBUTE_FILL_MAP = ['path']
@@ -123,4 +124,40 @@ export const generateCase = (
 
   template += '</svg>'
   return template.replace(/<|>/g, matched => encodeURIComponent(matched))
+}
+const handleError = (err: unknown, ErrorString?: string) => {
+  console.error(colors.red(`throw Error: ${err}`))
+  if (ErrorString) {
+    throw new Error(ErrorString)
+  }
+}
+export const isFunction = (val: unknown): val is Function => {
+  return typeof val === 'function'
+}
+export const isObject = (val: unknown): val is Record<string, any> => {
+  return val !== null && typeof val === 'object'
+}
+export const isPromise = <T = any>(val: unknown): val is Promise<T> => {
+  return isObject(val) && isFunction(val.then) && isFunction(val.catch)
+}
+// 调用时处理错误
+export const callWithErrorHandling = (fn: Function, args?: unknown[] | null, ErrorString?: string) => {
+  let res: any
+  try {
+    res = args ? fn(...args) : fn()
+  }
+  catch (e) {
+    handleError(e, ErrorString)
+  }
+  return res
+}
+// 调用时处理错误(异步)
+export const callWithAsyncErrorHandling = async(fn: Function, args?: unknown[] | null, ErrorString?: string) => {
+  const res = callWithErrorHandling(fn, args, ErrorString)
+  if (res && isPromise(res)) {
+    res.catch((e: unknown) => {
+      handleError(e, ErrorString)
+    })
+  }
+  return res
 }
