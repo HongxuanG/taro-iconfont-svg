@@ -1,0 +1,16 @@
+{
+  "configurations": [
+    {
+      "name": "Launch via PNPM",
+      "request": "launch",
+      "runtimeArgs": [
+        "iconfont-taro",
+      ],
+      "runtimeExecutable": "pnpm",
+      "skipFiles": [
+        "/node_modules/**"
+      ],
+      "type": "node"
+    }
+  ]
+}
