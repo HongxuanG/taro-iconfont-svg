@@ -3,14 +3,20 @@
 
 > 灵感来源：[taro-iconfont-cli](https://github.com/iconfont-cli/taro-iconfont-cli) 
 
-## 通过 background:url(data:svg+xml....) 的形式 在小程序上把svg显示出来
+通过 background:url(data:svg+xml....) 的形式 在小程序上把svg显示出来，目前在公司内部开发中得到实际应用。
 
 
 ![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5265333348ac4044a04175ddca83ea27~tplv-k3u1fbpfcp-watermark.image?)
 
 试验田请访问：[taro-test-iconfont-svg](https://github.com/HongxuanG/taro-test-iconfont-svg)
 
-# 📝用法
+# 支持平台
+- 微信小程序
+
+# 支持框架
+- React
+
+# 用法
 
 ## npm 安装
 
@@ -74,4 +80,4 @@ pnpm install taro-iconfont-svg -D
 ```bash
 执行 npx iconfont-taro 生成自定义组件iconfont
 ```
-在项目中引入文件即可
+最后在项目中引入新生成的`IconFont`组件即可
