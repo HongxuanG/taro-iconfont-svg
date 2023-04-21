@@ -1,7 +1,7 @@
 {
   "name": "taro-iconfont-svg",
   "version": "1.1.1",
-  "description": "通过 background:url(data:svg+xml....) 的形式 在小程序上把 SVG 字体图标显示出来",
+  "description": "让Taro也能使用阿里矢量图标库的SVG",
   "keywords": [
     "taro",
     "iconfont",
@@ -27,7 +27,7 @@
     "iconfont-taro": "npx ts-node src/commands/index.ts --config ./snapshots/iconfont.json"
   },
   "dependencies": {
-    "@tarojs/taro": "^3.5.10",
+    "@tarojs/taro": "3.6.0",
     "classnames": "^2.3.2",
     "colors": "^1.4.0",
     "fs-extra": "^11.1.0",
@@ -41,7 +41,7 @@
   },
   "devDependencies": {
     "@aaronghx/eslint-config-ts": "^0.1.11",
-    "@tarojs/components": "^3.5.10",
+    "@tarojs/components": "3.6.0",
     "@types/fs-extra": "^9.0.13",
     "@types/glob": "^8.0.0",
     "@types/minimist": "^1.2.2",
