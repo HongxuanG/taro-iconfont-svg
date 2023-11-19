@@ -37,7 +37,8 @@
     "mkdirp": "^1.0.4",
     "svgo": "^3.0.2",
     "ts-node": "^10.9.1",
-    "xml2js": "^0.4.23"
+    "tslib": "^2.6.2",
+    "xml2js": "0.6.2"
   },
   "devDependencies": {
     "@aaronghx/eslint-config-ts": "^0.1.11",
@@ -51,7 +52,6 @@
     "bumpp": "^8.2.1",
     "eslint": "^8.29.0",
     "react": "^18.2.0",
-    "tslib": "^2.4.1",
     "typescript": "^4.9.4"
   },
   "homepage": "https://github.com/HongxuanG/taro-iconfont-svg"
