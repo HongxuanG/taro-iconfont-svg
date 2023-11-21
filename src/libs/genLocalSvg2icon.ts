@@ -3,7 +3,8 @@ import path, { basename } from 'path'
 import type { XmlData } from 'iconfont-parser'
 import { parseStringPromise } from 'xml2js'
 import { optimize } from 'svgo'
-import { callWithAsyncErrorHandling, callWithErrorHandling } from './utils'
+import { callWithAsyncErrorHandling } from './utils'
+import glob from "glob";
 
 const prefix = 'icon-'
 // 优化svg
@@ -26,18 +27,15 @@ export const optimizeSvg = (svgString: string) => {
 
 export const genLocalSvg2Symbols = async(fileDir: string): Promise<XmlData['svg']['symbol']> => {
   const fullSvgDir = path.resolve(fileDir)
-  let files: string[] = []
-  files = callWithErrorHandling(fs.readdirSync, [fullSvgDir], '读取 SVG 文件夹失败')
   let done = 0
   const symbols: XmlData['svg']['symbol'] = []
   try {
     // 只读svg文件
-    const filtered = files.filter(item => path.extname(item) === '.svg')
+    const svgPaths = glob.sync(path.join(fullSvgDir, '**/*.svg'))
     // 异步
-    for await (const file of filtered) {
-      const iconName = basename(file, '.svg')
-      const fullSvgPath = `${`${fullSvgDir}\\${iconName}`}.svg`
-      const svgString = fs.readFileSync(fullSvgPath).toString()
+    for await (const path of svgPaths) {
+      const iconName = basename(path, '.svg')
+      const svgString = fs.readFileSync(path).toString()
       if (svgString) {
         callWithAsyncErrorHandling(async() => {
           const optimizedSvg = optimizeSvg(svgString)
@@ -45,13 +43,13 @@ export const genLocalSvg2Symbols = async(fileDir: string): Promise<XmlData['svg'
           result.svg.$.id = prefix + iconName
           done++
           symbols.push(result.svg)
-        }, null, `无法解析SVG文件: ${fullSvgPath}`)
+        }, null, `无法解析SVG文件: ${path}`)
       }
       else {
-        throw new Error(`无法读取SVG文件: ${fullSvgPath}`)
+        throw new Error(`无法读取SVG文件: ${path}`)
       }
     }
-    if (files.length === done) {
+    if (svgPaths.length === done) {
       return symbols
     }
     else {
