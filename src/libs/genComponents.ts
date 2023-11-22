@@ -10,6 +10,7 @@ import { getTemplate } from './getTemplate'
 import { replaceNames, replaceSVGTemplate, replaceSize, replaceStyleName } from './replace'
 import { genLocalSvg2Symbols } from './genLocalSvg2icon'
 // 生成 taro-iconfont 组件
+
 export const genComponents = async(data: XmlData, config: Config) => {
   let extendSymbols: XmlData['svg']['symbol'] = []
   if (config.parse_local_svg) {
@@ -29,10 +30,13 @@ export const genComponents = async(data: XmlData, config: Config) => {
 
   mkdirp.sync(saveDir)
   glob.sync(path.join(saveDir, '*')).forEach(file => fs.unlinkSync(file))
+
   const symbol = [...data.svg.symbol, ...extendSymbols]
   symbol.forEach((item) => {
     const iconId = item.$.id
-
+    if (iconId === 'icon-address') {
+      console.log('symbol', item.path)
+    }
     names.push(iconId)
     svgTemplates.push(
       `{/* ${iconId} */}\n

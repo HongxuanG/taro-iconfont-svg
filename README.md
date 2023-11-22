@@ -81,3 +81,13 @@ pnpm install taro-iconfont-svg -D
 执行 npx iconfont-taro 生成自定义组件iconfont
 ```
 最后在项目中引入新生成的`IconFont`组件即可
+
+##### IconFont 组件
+
+| 参数              | 类型                | 说明                               | 默认值 |
+|:----------------|:------------------|:---------------------------------|:----|
+| name            | string            | 阿里矢量图标Symbol名称，字段唯一表示，必须唯一       | -   |
+| size            | number            | 图标字体大小                           | -   |
+| color           | string ｜ string[] | 图标颜色，如果图标有多个色块，请十六进制颜色字符串组成的数组表示 | -   |
+| customStyle     | CSSProperty       | 自定义行内样式style                     | -   |
+| customClassName | string            | 自定义样式class类名                     | -   |
