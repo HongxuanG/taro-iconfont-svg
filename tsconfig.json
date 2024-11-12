@@ -29,5 +29,5 @@
     "resolveJsonModule": true,
     "skipLibCheck": true
   },
-  "exclude": ["./snapshots/", "./build/"]
+  "exclude": ["./build/"]
 }

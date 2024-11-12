@@ -5,7 +5,7 @@ rm -rf ./src/components/iconfont
 ./node_modules/.bin/tsc
 
 mv ./build/src/* ./build
-rm -rf ./build/src ./build/snapshots
+rm -rf ./build/src ./build/examples
 cp README.md package.json ./build
 cp -rf src/templates ./build/templates
 echo "Build completed"
