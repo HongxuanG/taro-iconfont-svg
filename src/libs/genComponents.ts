@@ -34,18 +34,21 @@ export const genComponents = async(data: XmlData, config: Config) => {
   const symbol = [...data.svg.symbol, ...extendSymbols]
   symbol.forEach((item) => {
     const iconId = item.$.id
-    if (iconId === 'icon-address') {
-      console.log('symbol', item.path)
-    }
+
     names.push(iconId)
+    const svgContent = generateCase(
+      item,
+      {
+        hexToRgb: true,
+      },
+    )
+    if (iconId === 'icon-address') {
+      console.log('symbol', JSON.stringify(item, null, 2))
+      console.log('svgContent', svgContent)
+    }
     svgTemplates.push(
       `{/* ${iconId} */}\n
-      { name === '${iconId}' && (<View style={{backgroundImage: #que#url(#$#{quot}data:image/svg+xml, ${generateCase(
-  item,
-  {
-    hexToRgb: true,
-  },
-)}#$#{quot})#que#,`
+      { name === '${iconId}' && (<View style={{backgroundImage: #que#url(#$#{quot}data:image/svg+xml, ${svgContent}#$#{quot})#que#,`
         + ' width: #que##$#{svgSize}px#que#, height: #que##$#{svgSize}px#que#, ...customStyle}} className={classnames("icon", customClassName)} />) }\n',
     )
 
