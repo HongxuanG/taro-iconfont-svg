@@ -1,0 +1,10 @@
+{
+  "symbol_url": "//at.alicdn.com/t/c/font_1840088_8d2mef9dbui.js",
+  "parse_local_svg": true,
+  "local_svg_dir": "./examples/assert",
+  "save_dir": "./src/components/iconfont",
+  "use_typescript": true,
+  "use_rpx": true,
+  "default_icon_size": 18,
+  "design_width": 750
+}
