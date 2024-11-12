@@ -23,8 +23,8 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "release": "bumpp package.json --commit --push --tag",
-    "iconfont-init": "npx ts-node src/commands/createJson.ts --config ./snapshots/iconfont.json",
-    "iconfont-taro": "npx ts-node src/commands/index.ts --config ./snapshots/iconfont.json"
+    "iconfont-init": "npx ts-node ./src/commands/createJson.ts --config ./examples/iconfont.json",
+    "iconfont-taro": "npx ts-node ./src/commands/index.ts --config ./examples/iconfont.json"
   },
   "dependencies": {
     "@tarojs/taro": "3.6.0",
@@ -54,5 +54,6 @@
     "react": "^18.2.0",
     "typescript": "^4.9.4"
   },
-  "homepage": "https://github.com/HongxuanG/taro-iconfont-svg"
+  "homepage": "https://github.com/HongxuanG/taro-iconfont-svg",
+  "packageManager": "pnpm@9.12.0+sha512.4abf725084d7bcbafbd728bfc7bee61f2f791f977fd87542b3579dcb23504d170d46337945e4c66485cd12d588a0c0e570ed9c477e7ccdd8507cf05f3f92eaca"
 }
