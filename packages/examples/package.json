@@ -1,5 +1,5 @@
 {
-  "name": "examples",
+  "name": "@taro-iconfont-svg/examples",
   "version": "1.0.0",
   "private": true,
   "description": "taro-iconfont-svg 使用示例",
@@ -10,7 +10,7 @@
     "framework": "React"
   },
   "scripts": {
-    "iconfont-taro": "npx ts-node ../src/commands/index.ts --config iconfont.json",
+    "iconfont-taro": "npx ts-node ../core/src/commands/index.ts --config iconfont.json",
     "build:weapp": "taro build --type weapp",
     "build:swan": "taro build --type swan",
     "build:alipay": "taro build --type alipay",

@@ -6,8 +6,8 @@ rm -rf ./src/components/iconfont
 
 mv ./build/src/* ./build
 rm -rf ./build/src ./build/examples
-cp README.md package.json ./build
-cp -rf src/templates ./build/templates
+cp ../../README.md ../../package.json ./build
+cp -rf ./templates ./build/templates
 echo "Build completed"
 # # 保存旧的 npm registry 镜像地址
 # old_registry=$(npm config get registry)
