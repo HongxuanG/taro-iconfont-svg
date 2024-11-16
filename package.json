@@ -19,12 +19,12 @@
     "iconfont-taro": "./commands/index.js"
   },
   "scripts": {
-    "build": "bash ./build.sh",
+    "build": "pnpm run --filter core build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "release": "bumpp package.json --commit --push --tag",
-    "iconfont-init": "npx ts-node ./src/commands/createJson.ts --config ./examples/iconfont.json",
-    "iconfont-taro": "npx ts-node ./src/commands/index.ts --config ./examples/iconfont.json"
+    "iconfont-init": "npx ts-node packages/core/src/commands/createJson.ts --config packages/examples/iconfont.json",
+    "iconfont-taro": "npx ts-node packages/core/src/commands/index.ts --config packages/examples/iconfont.json"
   },
   "dependencies": {
     "@tarojs/taro": "3.6.0",

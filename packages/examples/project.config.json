@@ -5,8 +5,8 @@
   "appid": "wxaf655d4dbd4a3f16",
   "setting": {
     "urlCheck": true,
-    "es6": false,
-    "enhance": false,
+    "es6": true,
+    "enhance": true,
     "compileHotReLoad": false,
     "postcss": false,
     "minified": false,
@@ -14,7 +14,9 @@
       "ignore": [],
       "disablePlugins": [],
       "outputPath": ""
-    }
+    },
+    "condition": false,
+    "swc": true
   },
   "compileType": "miniprogram",
   "libVersion": "3.6.5",
