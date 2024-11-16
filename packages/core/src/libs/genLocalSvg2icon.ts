@@ -3,8 +3,8 @@ import path, { basename } from 'path'
 import type { XmlData } from 'iconfont-parser'
 import { parseStringPromise } from 'xml2js'
 import { optimize } from 'svgo'
+import glob from 'glob'
 import { callWithAsyncErrorHandling } from './utils'
-import glob from "glob";
 
 const prefix = 'icon-'
 // 优化svg
