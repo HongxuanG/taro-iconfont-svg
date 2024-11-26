@@ -1,6 +1,8 @@
 <h1 align='center'>taro-iconfont-svg</h1> 
 <p align='center'>一款针对 taro3x 的 svg 类型iconfont 组件生成器</p>
 
+本仓库源码出自[taro-iconfont-cli](https://github.com/iconfont-cli/taro-iconfont-cli),由于原仓库无人维护合并pr，所以本人基于 taro-iconfont-cli 自己维护这套源码，欢迎大家一起维护，有问题可以提 issue，我会尽快解决。
+
 > 灵感来源：[taro-iconfont-cli](https://github.com/iconfont-cli/taro-iconfont-cli) 
 
 通过 background:url(data:svg+xml....) 的形式 在小程序上把svg显示出来，目前在公司内部开发中得到实际应用。
