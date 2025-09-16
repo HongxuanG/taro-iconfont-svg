@@ -1,7 +1,7 @@
 {
-  "symbol_url": "//at.alicdn.com/t/c/font_1840088_8d2mef9dbui.js",
-  "parse_local_svg": true,
-  "local_svg_dir": "./examples/assert",
+  "symbol_url": "", // 如果不使用本地SVG，需要填写symbol_url
+  "parse_local_svg": true, // 是否解析本地SVG文件
+  "local_svg_dir": "./src/assert",
   "save_dir": "./src/components/iconfont",
   "use_typescript": true,
   "use_rpx": true,
