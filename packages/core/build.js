@@ -11,7 +11,7 @@ console.log('Build start')
 const rootDir = process.cwd()
 const buildDir = path.join(rootDir, 'build')
 const srcDir = path.join(rootDir, 'src')
-const templatesDir = path.join(rootDir, 'templates')
+const templatesDir = path.join(rootDir, 'src', 'templates')
 
 // 清理旧的构建文件
 console.log('Cleaning old build files...')
@@ -65,7 +65,7 @@ if (fs.existsSync(rootReadmePath)) {
 if (fs.existsSync(rootPackagePath)) {
   copyFileSync(rootPackagePath, path.join(buildDir, 'package.json'))
 }
-
+console.log('templatesDir', templatesDir, fs.existsSync(templatesDir))
 // 复制模板文件
 if (fs.existsSync(templatesDir)) {
   copySync(templatesDir, path.join(buildDir, 'templates'))
