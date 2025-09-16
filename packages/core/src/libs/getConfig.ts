@@ -41,8 +41,14 @@ export const getConfig = (argv?: string[]) => {
 
   const config = require(targetFile) as Config
 
-  if (!config.symbol_url || !/^(https?:)?\/\//.test(config.symbol_url)) {
-    console.warn(colors.red('You are required to provide symbol_url'))
+  if (!config.parse_local_svg && (!config.symbol_url || !/^(https?:)?\/\//.test(config.symbol_url))) {
+    console.warn(colors.red('You are required to provide symbol_url when parse_local_svg is false'))
+    process.exit(1)
+  }
+
+  // 添加本地 SVG 模式的验证
+  if (config.parse_local_svg && !config.local_svg_dir) {
+    console.warn(colors.red('You are required to provide local_svg_dir when parse_local_svg is true'))
     process.exit(1)
   }
 
