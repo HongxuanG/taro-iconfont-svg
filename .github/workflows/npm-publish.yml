@@ -29,9 +29,9 @@ jobs:
       
       - name: Get pnpm store directory
         id: pnpm-cache
-        shell: bash
+        shell: powershell
         run: |
-          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+          echo "STORE_PATH=$(pnpm store path)" | Out-File -FilePath $env:GITHUB_OUTPUT -Encoding utf8 -Append
       
       - name: Setup pnpm cache
         uses: actions/cache@v3
