@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "bash ./build.sh"
+    "build": "node ./build.js"
   },
   "keywords": [],
   "author": "",
